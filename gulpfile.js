@@ -1,87 +1,84 @@
-const gulp = require("gulp");
-const browserSync = require("browser-sync");
-const sass = require("gulp-sass")(require("sass"));
-const cleanCSS = require("gulp-clean-css");
-const autoprefixer = require("gulp-autoprefixer");
-const rename = require("gulp-rename");
-const htmlmin = require("gulp-htmlmin");
-const webpack = require("webpack-stream");
+const { task, watch, src, dest, parallel } = require('gulp');
+const browserSync = require('browser-sync');
+const sass = require('gulp-sass')(require('sass'));
+const cleanCSS = require('gulp-clean-css');
+const autoprefixer = require('gulp-autoprefixer');
+const rename = require('gulp-rename');
+const htmlmin = require('gulp-htmlmin');
+const webpack = require('webpack-stream');
 
-gulp.task("server", function () {
-  browserSync({
+const { reload, stream } = browserSync;
+
+task('server', function () {
+  browserSync.init({
     server: {
-      baseDir: "dist",
+      baseDir: 'dist',
     },
+    port: 3000,
   });
 
-  gulp.watch("dist/*.html").on("change", browserSync.reload);
+  watch('dist/*.html').on('change', reload);
 });
 
-gulp.task("styles", function () {
-  return gulp
-    .src("src/scss/**/*.+(scss|sass)")
-    .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
-    .pipe(rename({ suffix: ".min", prefix: "" }))
+task('styles', function () {
+  return src('src/scss/**/*.+(scss|sass)')
+    .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+    .pipe(rename({ suffix: '.min', prefix: '' }))
     .pipe(autoprefixer())
-    .pipe(cleanCSS({ compatibility: "ie8" }))
-    .pipe(gulp.dest("dist/css"))
-    .pipe(browserSync.stream());
+    .pipe(cleanCSS({ compatibility: 'ie8' }))
+    .pipe(dest('dist/css'))
+    .pipe(stream());
 });
 
-gulp.task("watch", function () {
-  gulp.watch("src/sass/**/*.+(scss|sass|css)", gulp.parallel("styles"));
-  gulp.watch("dist/*.html").on("change", gulp.parallel("html"));
-  gulp.watch("src/js/**/*.js").on("change", gulp.parallel("webpack"));
-  gulp.watch("src/fonts/**/*").on("all", gulp.parallel("fonts"));
-  gulp.watch("src/icons/**/*").on("all", gulp.parallel("icons"));
-  gulp.watch("src/img/**/*").on("all", gulp.parallel("images"));
+task('watch', function () {
+  watch('src/scss/**/*.+(scss|sass|css)', parallel('styles'));
+  watch('src/*.html', parallel('html')); 
+  watch('src/js/**/*.js').on('change', parallel('webpack'));
+  watch('src/fonts/**/*').on('all', parallel('fonts'));
+  watch('src/icons/**/*').on('all', parallel('icons'));
+  watch('src/img/**/*').on('all', parallel('images'));
 });
 
-gulp.task("html", function () {
-  return gulp
-    .src("*.html")
+task('html', function () {
+  return src('src/*.html')
     .pipe(htmlmin({ collapseWhitespace: true }))
-    .pipe(gulp.dest("dist/"));
-});
-
-gulp.task("webpack", function () {
-  return gulp
-    .src("src/js/**/*.js")
-    .pipe(webpack(require("./webpack.config.js")))
-    .pipe(gulp.dest("dist/js"));
-});
-
-gulp.task("fonts", function () {
-  return gulp
-    .src("src/fonts/**/*")
-    .pipe(gulp.dest("dist/fonts"))
+    .pipe(dest('dist/'))
     .pipe(browserSync.stream());
 });
 
-gulp.task("icons", function () {
-  return gulp
-    .src("src/icons/**/*")
-    .pipe(gulp.dest("dist/icons"))
-    .pipe(browserSync.stream());
+task('webpack', function () {
+  return src('src/js/script.js')
+    .pipe(webpack(require('./webpack.config.js')))
+    .pipe(dest('dist/js'));
 });
 
-gulp.task("images", function () {
-  return gulp
-    .src("src/img/**/*")
-    .pipe(gulp.dest("dist/img"))
-    .pipe(browserSync.stream());
+task('fonts', function () {
+  return src('src/fonts/**/*').pipe(dest('dist/fonts')).pipe(stream());
 });
 
-gulp.task(
-  "default",
-  gulp.parallel(
-    "watch",
-    "server",
-    "styles",
-    "webpack",
-    "fonts",
-    "icons",
-    "html",
-    "images"
+task('icons', function () {
+  return src('src/icons/**/*').pipe(dest('dist/icons')).pipe(stream());
+});
+
+task('images', function () {
+  return src('src/img/**/*').pipe(dest('dist/img')).pipe(stream());
+});
+
+task(
+  'build',
+  parallel('styles', 'html', 'webpack', 'fonts', 'icons', 'images')
+);
+
+task(
+  'default',
+  parallel(
+    'watch',
+    'server',
+    'styles',
+    'webpack',
+    'fonts',
+    'icons',
+    'html',
+    'images'
   )
 );

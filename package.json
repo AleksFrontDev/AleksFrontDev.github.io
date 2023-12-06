@@ -4,12 +4,16 @@
 	"description": "",
 	"main": "gulpfile.js",
 	"homepage": "https://aleksfrontdev.github.io/",
+	"engines": {
+		"node": ">=22.0.0"
+	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"build": "gulp build",
 		"webpack": "webpack --mode=development",
 		"deploy": "gh-pages -d dist",
-		"predeploy": "npm run build"
+		"predeploy": "npm run build",
+		"dev": "gulp dev"
 	},
 	"author": "Aleksandr",
 	"license": "ISC",
@@ -33,7 +37,8 @@
 		"> 1%"
 	],
 	"dependencies": {
-		"bootstrap": "^5.3.2",
+		"bootstrap": "^5.3.8",
+		"bootstrap-reboot": "^4.5.6",
 		"gh-pages": "^6.0.0",
 		"gulp": "^4.0.2"
 	}

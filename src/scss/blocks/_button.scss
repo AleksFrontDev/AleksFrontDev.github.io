@@ -3,4 +3,36 @@
   background: $main-color;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
   padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: darken($main-color, 10%);
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+  }
+
+  @media (max-width: 768px) {
+    height: 40px;
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+
+  @media (max-width: 576px) {
+    height: 38px;
+    padding: 8px 16px;
+    font-size: 12px;
+    width: 100%;
+    max-width: 200px;
+  }
 }

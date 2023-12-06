@@ -1,21 +1,52 @@
 .resume {
   padding-top: 120px;
+
+  @media (max-width: 1200px) {
+    padding-top: 100px;
+  }
+
+  @media (max-width: 992px) {
+    padding-top: 80px;
+  }
+
+  @media (max-width: 768px) {
+    padding-top: 60px;
+  }
+
+  @media (max-width: 576px) {
+    padding-top: 40px;
+  }
+
   &_title {
     position: relative;
     text-align: center;
-    @include before_circle;
-    &:before {
-      top: -6px;
-      left: 39%;
-      transform: translate(-71%);
-    }
   }
+
   .divider {
     margin-bottom: 30px;
-    padding-left: -75%;
-    padding-right: -25%;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (max-width: 768px) {
+      margin-bottom: 25px;
+    }
+
+    @media (max-width: 576px) {
+      margin-bottom: 20px;
+    }
   }
+
   &_line {
+    padding: 0 20px;
+
+    @media (max-width: 768px) {
+      padding: 0 15px;
+    }
+
+    @media (max-width: 576px) {
+      padding: 0 10px;
+    }
+
     .resume_text {
       font-size: 16px;
       min-height: 200px;
@@ -26,6 +57,53 @@
       align-items: center;
       text-align: center;
       position: relative;
+      color: #555;
+
+      @media (max-width: 1200px) {
+        width: 100%;
+        max-width: 700px;
+        min-height: 180px;
+      }
+
+      @media (max-width: 992px) {
+        max-width: 600px;
+        min-height: 160px;
+        line-height: 28px;
+      }
+
+      @media (max-width: 768px) {
+        max-width: 500px;
+        min-height: 140px;
+        font-size: 15px;
+        line-height: 26px;
+      }
+
+      @media (max-width: 576px) {
+        max-width: 100%;
+        min-height: auto;
+        font-size: 14px;
+        line-height: 24px;
+        padding: 0 10px;
+      }
+
+      @media (max-width: 400px) {
+        font-size: 13px;
+        line-height: 22px;
+        padding: 0 5px;
+      }
     }
+  }
+}
+
+.divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:before,
+  &:after {
+    content: '';
+    height: 1px;
+    background-color: $main-color;
   }
 }

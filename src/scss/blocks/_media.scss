@@ -3,12 +3,7 @@
     max-width: 1100px;
   }
   .sidepanel {
-    top: 230px;
-    left: 0;
-    right: 1300px;
-  }
-  .contacts_wrapper {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    display: none;
   }
 }
 
@@ -17,13 +12,8 @@
     max-width: 1000px;
   }
   .promo_header {
-    margin-left: 58%;
+    margin-left: 50%;
     width: 300px;
-  }
-  .sidepanel {
-    top: 230px;
-    left: 0;
-    right: 1200px;
   }
   .title_fz48 {
     font-size: 36px;
@@ -34,232 +24,239 @@
   .container {
     max-width: 950px;
   }
-
   .stack_tecn {
-    grid-template-columns: repeat(auto-fit, 280px);
-    padding-left: 20%;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    justify-content: center;
+    padding-left: 0;
   }
 }
 
 @media (max-width: 1200px) {
-  .promo .promo_header .promo_subtitle {
-    font-size: 45px;
+  .container {
+    max-width: 900px;
   }
+
   .promo {
-    min-height: 70vh;
-  }
-}
+    min-height: 60vh;
 
-@media (max-width: 1200px) {
-  .promo_header {
-    margin-left: 55%;
-    width: 300px;
-  }
+    .promo_header {
+      margin-left: 50%;
+      width: 280px;
 
-  .promo .promo_header .promo_subtitle {
-    font-size: 35px;
-  }
-  .sidepanel {
-    display: none;
-  }
-  .about {
-    &_wrapper {
-      grid-template-columns: repeat(auto-fit, 300px);
-      column-gap: 40px;
-    }
-    &_skills {
-      column-gap: 20px;
-      grid-template: repeat(2, minmax(115px, auto)) / repeat(2, 250px);
-      &-item {
-        grid-template-columns: 40px 195px;
-        column-gap: 15px;
+      .promo_subtitle {
+        font-size: 32px;
       }
     }
   }
-  .divider {
+
+  .sidepanel {
     display: none;
   }
+
+  .about {
+    &_wrapper {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      text-align: center;
+    }
+
+    &_skills {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+
+      &-item {
+        grid-template-columns: 50px 1fr;
+        text-align: left;
+      }
+    }
+  }
+
   .resume_title {
     margin-bottom: 30px;
   }
+
   .contacts_wrapper {
-    grid-template-columns: 500px;
-    padding-left: 100px;
-    justify-content: space-between;
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+    gap: 40px;
   }
+
   .stack_tecn {
-    grid-template-columns: repeat(auto-fit, 280px);
-    padding-left: 8%;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
   }
 }
 
 @media (max-width: 992px) {
   .container {
-    max-width: 600px;
+    max-width: 720px;
   }
-  .title {
-    &_fz36 {
-      font-size: 30px;
-    }
+
+  .title_fz36 {
+    font-size: 28px;
   }
 
   .promo_header {
-    display: none;
+    margin-left: 45%;
+    width: 250px;
+
+    .promo_subtitle {
+      font-size: 28px;
+    }
   }
-  .sidepanel {
-    display: none;
-  }
+
   .about {
-    padding-top: 56px;
+    padding-top: 80px;
 
     &_wrapper {
-      grid-template-columns: 250px 390px;
+      grid-template-columns: 1fr;
     }
+
     &_skills {
-      grid-template-columns: 360px;
-      grid-auto-rows: minmax(115px, auto);
+      grid-template-columns: 1fr;
+
       &-item {
-        grid-template-columns: 40px 320px;
-        column-gap: 20px;
+        grid-template-columns: 50px 1fr;
       }
     }
   }
-  .divider {
-    display: none;
-  }
-  .resume_title {
-    margin-bottom: 30px;
-  }
+
   .resume_line .resume_text {
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
   }
+
   .stack_tecn {
-    grid-template-columns: repeat(auto-fit, 450px);
-  }
-  .contacts_wrapper {
-    padding-left: 0;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 }
 
 @media (max-width: 768px) {
   .container {
-    max-width: 700px;
-  }
-  .sidepanel {
-    display: none;
+    max-width: 540px;
   }
 
-  .promo_header {
-    display: none;
-  }
-  .about {
-    padding-left: 5%;
-    padding-top: 40px;
-    &_photo img {
-      width: 390px;
-      height: 590px;
-    }
-    &_skills {
-      grid-template-columns: repeat(2, 260px);
-      &-item {
-        grid-template-columns: 40px 200px;
-        column-gap: 20px;
+  .promo {
+    min-height: 50vh;
+
+    .promo_header {
+      margin-left: 40%;
+      width: 220px;
+
+      .promo_subtitle {
+        font-size: 24px;
       }
     }
-    &_wrapper {
-      grid-template: 400px / 2fr;
-    }
   }
-  .divider {
-    display: none;
-  }
-  .resume {
-    display: none;
-  }
-  .stack_tecn {
-    grid-template-columns: repeat(auto-fit, 300px);
-  }
-  .contacts {
-    &_descr {
-      padding-top: 5px;
-      padding-left: 30%;
-    }
-    &_photo img {
-      display: none;
-    }
-  }
-}
 
-@media (max-width: 576px) {
-  .promo {
-    min-height: 60vh;
-  }
-  .container {
-    width: 90%;
-    display: block;
-  }
-  .stack_tecn {
-    display: block;
-    text-align: center;
-  }
-  .title {
-    &_fz48 {
-      font-size: 26px;
-    }
-    &_fz36 {
-      font-size: 24px;
-    }
-  }
-  .sidepanel {
-    display: none;
-  }
-  .promo_header {
-    display: none;
-  }
   .about {
+    padding-top: 60px;
+
     &_photo img {
-      width: 350px;
-      height: 530px;
-      display: block;
-      margin: 0 auto;
+      width: 100%;
+      max-width: 300px;
+      height: 400px;
     }
-    &_wrapper {
-      grid-template: 340px auto auto / 1fr;
-    }
+
     &_skills {
       grid-template-columns: 1fr;
     }
   }
 
-  .divider {
-    display: none;
+  .resume {
+    padding: 60px 0;
   }
-  .resume_title {
-    margin-bottom: 30px;
-  }
+
   .contacts {
-    padding-left: 20%;
-    &_textarea textarea {
-      width: 350px;
-    }
     &_descr {
-      padding-left: 5px;
+      padding-top: 0;
+      padding-left: 0;
+    }
+
+    &_photo img {
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      height: 400px;
+      margin: 0 auto;
     }
   }
 }
 
-@media (max-width: 515px) {
-  .contacts_form {
-    display: none;
+@media (max-width: 576px) {
+  .container {
+    width: 95%;
+    margin: 0 auto;
   }
+
   .promo {
-    min-height: 30vh;
-    width: 100%;
+    min-height: 40vh;
+
+    .promo_header {
+      margin: 0 auto;
+      width: 100%;
+      max-width: 280px;
+      text-align: center;
+
+      .promo_subtitle {
+        font-size: 22px;
+      }
+    }
+  }
+
+  .title {
+    &_fz48 {
+      font-size: 24px;
+    }
+    &_fz36 {
+      font-size: 22px;
+    }
+  }
+
+  .about {
+    &_photo img {
+      width: 100%;
+      max-width: 250px;
+      height: 350px;
+    }
+
+    &_wrapper {
+      gap: 30px;
+    }
+  }
+
+  .contacts {
+    padding: 80px 0;
+
+    &_textarea textarea {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    &_form {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+
+  .stack_tecn {
+    grid-template-columns: 1fr;
+    gap: 25px;
   }
 }
 
 @media (max-width: 400px) {
   .promo {
-    display: none;
+    min-height: 35vh;
+
+    .promo_header .promo_subtitle {
+      font-size: 20px;
+    }
+  }
+
+  .about_photo img {
+    max-width: 220px;
+    height: 300px;
   }
 }

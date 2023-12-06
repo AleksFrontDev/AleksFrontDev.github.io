@@ -3,14 +3,45 @@
   position: relative;
   background: url("../../main_bg.jpg") no-repeat 50% / cover;
   padding: 130px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  @media (max-width: 1200px) {
+    min-height: 90vh;
+    padding: 100px 60px;
+    background-position: center center;
+  }
+
+  @media (max-width: 992px) {
+    min-height: 80vh;
+    padding: 80px 40px;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    min-height: 70vh;
+    padding: 60px 30px;
+  }
+
+  @media (max-width: 576px) {
+    min-height: 60vh;
+    padding: 40px 20px;
+  }
+
+  @media (max-width: 400px) {
+    min-height: 50vh;
+    padding: 30px 15px;
+  }
 
   .bg_photo {
     width: 100%;
-    height: auto;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
     z-index: -1;
+    object-fit: cover;
   }
 
   .promo_header {
@@ -18,11 +49,34 @@
     z-index: 1;
     margin-left: -45px;
 
+    @media (max-width: 1200px) {
+      margin-left: -30px;
+    }
+
+    @media (max-width: 992px) {
+      margin-left: 0;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 576px) {
+      max-width: 300px;
+    }
+
     & .promo_title {
       position: relative;
       padding-left: 10px;
       z-index: 2;
-      @include before_circle;
+
+      @media (max-width: 992px) {
+        justify-content: center;
+        padding-left: 0;
+      }
+
+      @media (max-width: 576px) {
+        font-size: 14px;
+      }
     }
 
     & .promo_subtitle {
@@ -30,23 +84,105 @@
       max-width: 316px;
       font-size: 48px;
       display: block;
+      line-height: 1.2;
+
+      @media (max-width: 1200px) {
+        font-size: 42px;
+        max-width: 280px;
+      }
+
+      @media (max-width: 992px) {
+        font-size: 36px;
+        max-width: 100%;
+        margin: 25px auto 0;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 32px;
+        margin-top: 20px;
+      }
+
+      @media (max-width: 576px) {
+        font-size: 28px;
+        margin-top: 15px;
+      }
+
+      @media (max-width: 400px) {
+        font-size: 24px;
+        margin-top: 12px;
+      }
     }
 
     & .promo_btns {
       margin-top: 25px;
       display: flex;
+      gap: 20px;
       align-items: center;
       justify-content: space-between;
       width: 195px;
+
+      @media (max-width: 992px) {
+        margin: 25px auto 0;
+        justify-content: center;
+        gap: 30px;
+      }
+
+      @media (max-width: 576px) {
+        margin-top: 20px;
+        width: 100%;
+        max-width: 250px;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      @media (max-width: 400px) {
+        margin-top: 15px;
+        gap: 12px;
+      }
     }
 
     & .promo_link {
       color: rgb(248, 232, 217);
       font-weight: bold;
+      font-size: 16px;
+      transition: all 0.3s ease;
+
+      @media (max-width: 576px) {
+        font-size: 14px;
+        text-align: center;
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+      }
 
       &:hover {
         color: rgb(233, 200, 168);
         text-decoration: none;
+        transform: translateY(-2px);
+      }
+
+      &.btn {
+        @media (max-width: 576px) {
+          padding: 12px 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .promo {
+    min-height: 120vh;
+    padding: 80px 20px;
+
+    .promo_header {
+      .promo_subtitle {
+        font-size: 28px;
+        margin-top: 15px;
+      }
+
+      .promo_btns {
+        margin-top: 20px;
       }
     }
   }

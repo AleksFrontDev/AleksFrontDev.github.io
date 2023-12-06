@@ -1,6 +1,7 @@
 .contacts {
   position: relative;
   padding: 120px 0 90px 0;
+
   .placeholder {
     position: absolute;
     top: 30px;
@@ -14,48 +15,145 @@
   &_wrapper {
     padding: 0 35px 0 52px;
     display: grid;
-    grid-template-columns: 550px 600px;
+    grid-template-columns: minmax(300px, 550px) minmax(300px, 600px);
     justify-content: space-between;
+    gap: 40px;
+
+    @media (max-width: 1200px) {
+      grid-template-columns: 1fr;
+      padding: 0 20px;
+      gap: 50px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      padding: 0 15px;
+      gap: 40px;
+    }
   }
+
   &_photo {
+    display: flex;
+    justify-content: center;
+
     img {
       margin-top: 20px;
-      width: 400px;
+      width: 100%;
+      max-width: 400px;
       height: 600px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+      @media (max-width: 1200px) {
+        height: 500px;
+        max-width: 350px;
+      }
+
+      @media (max-width: 768px) {
+        height: 400px;
+        max-width: 300px;
+      }
+
+      @media (max-width: 576px) {
+        height: 300px;
+        max-width: 250px;
+        margin-top: 10px;
+      }
     }
   }
+
   &_descr {
     padding-top: 100px;
+
+    @media (max-width: 1200px) {
+      padding-top: 0;
+    }
+
     .divider {
       margin: 0;
+
+      @media (max-width: 1200px) {
+        margin: 0 auto;
+      }
     }
   }
+
   &_title {
     position: relative;
     padding-left: 12px;
     padding-top: 1px;
-    padding: 1px 0 0 12px;
-    @include before_circle;
+
+    @media (max-width: 1200px) {
+      justify-content: center;
+      padding-left: 0;
+    }
   }
+
   &_text {
     margin-top: 18px;
+    font-size: 16px;
+    color: #555;
+
+    @media (max-width: 768px) {
+      font-size: 15px;
+      margin-top: 15px;
+    }
   }
+
   &_social {
     margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    @media (max-width: 1200px) {
+      justify-content: center;
+    }
   }
+
   &_link {
-    margin-right: 25px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
     img {
       max-width: 60px;
       max-height: 60px;
+
+      @media (max-width: 768px) {
+        max-width: 50px;
+        max-height: 50px;
+      }
+
+      @media (max-width: 576px) {
+        max-width: 45px;
+        max-height: 45px;
+      }
     }
   }
+
   &_form {
     margin-top: 30px;
     display: grid;
-    grid-template: 45px 190px 45px / repeat(2, 280px);
+    grid-template: 45px 190px 45px / repeat(2, minmax(200px, 280px));
     justify-content: space-between;
-    row-gap: 41px;
+    row-gap: 30px;
+
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    @media (max-width: 576px) {
+      margin-top: 20px;
+      gap: 20px;
+    }
+
     label {
       display: block;
       position: absolute;
@@ -70,24 +168,64 @@
 
   &_input {
     position: relative;
+
+    @media (max-width: 992px) {
+      grid-column: 1;
+    }
+
     input {
       width: 100%;
       height: 100%;
       padding: 0 20px;
       font-size: 14px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      transition: border-color 0.3s ease;
+
+      &:focus {
+        border-color: $main-color;
+        outline: none;
+      }
+
+      @media (max-width: 576px) {
+        padding: 0 15px;
+        font-size: 13px;
+      }
     }
   }
+
   &_textarea {
     position: relative;
     grid-column: 1/3;
+
+    @media (max-width: 992px) {
+      grid-column: 1;
+    }
+
     textarea {
-      width: 400px;
+      width: 100%;
+      max-width: 600px;
       height: 130px;
       resize: none;
-      padding: 10px 20px;
+      padding: 15px 20px;
       font-size: 14px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      transition: border-color 0.3s ease;
+
+      &:focus {
+        border-color: $main-color;
+        outline: none;
+      }
+
+      @media (max-width: 576px) {
+        height: 120px;
+        padding: 12px 15px;
+        font-size: 13px;
+      }
     }
   }
+
   &_btn {
     border: none;
     font-weight: bold;
@@ -95,5 +233,18 @@
     line-height: 21px;
     color: #f8e8d9;
     margin-top: 80px;
+    grid-column: 1/3;
+
+    @media (max-width: 992px) {
+      grid-column: 1;
+      margin-top: 40px;
+      justify-self: center;
+    }
+
+    @media (max-width: 576px) {
+      margin-top: 30px;
+      width: 100%;
+      max-width: 250px;
+    }
   }
 }
