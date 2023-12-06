@@ -46,7 +46,6 @@ __webpack_require__.r(__webpack_exports__);
 
 window.addEventListener("DOMContentLoaded", function () {
   (0,_modules_hamburger__WEBPACK_IMPORTED_MODULE_0__["default"])();
-  console.log("Hamburger module loaded");
 });
 
 /***/ })
