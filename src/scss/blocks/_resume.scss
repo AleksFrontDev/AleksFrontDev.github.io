@@ -1,5 +1,5 @@
 .resume {
-  padding-top: 120px;
+  padding: 120px 0 120px 0;
 
   @media (max-width: 1200px) {
     padding-top: 100px;
@@ -105,5 +105,66 @@
     content: '';
     height: 1px;
     background-color: $main-color;
+  }
+}
+
+.resume_text {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 750px;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    gap: 12px;
+  }
+}
+
+.resume_item {
+  display: block;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  text-align: left;
+
+  &:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    padding: 10px 15px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+}
+
+.resume_badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 14px;
+  margin-right: 10px;
+
+  @media (max-width: 768px) {
+    font-size: 13px;
+    padding: 3px 10px;
+    margin-right: 8px;
+  }
+
+  @media (max-width: 480px) {
+    display: block;
+    width: fit-content;
+    margin-bottom: 5px;
+    font-size: 12px;
   }
 }
