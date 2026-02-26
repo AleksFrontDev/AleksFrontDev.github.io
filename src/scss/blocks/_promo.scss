@@ -25,13 +25,7 @@
   }
 
   @media (max-width: 576px) {
-    min-height: 60vh;
-    padding: 40px 20px;
-  }
-
-  @media (max-width: 400px) {
-    min-height: 50vh;
-    padding: 0 30px;
+    display: none;
   }
 
   .bg_photo {
