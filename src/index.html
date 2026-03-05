@@ -423,7 +423,61 @@
 
         <div class="portfolio__grid">
 
-          <!-- Project 1 Fullstack Todo App -->
+          <!-- Project 1: Wildberries Tariff Service (Fullstack/Backend) -->
+          <div class="portfolio__item" data-category="backend fullstack">
+            <div class="portfolio__image">
+              <img src="img/exist projects/GoogleSheets.png" alt="Wildberries Tariff Service">
+              <div class="portfolio__overlay">
+                <div class="portfolio__tech">
+                  <span class="tech-tag">Node.js</span>
+                  <span class="tech-tag">TypeScript</span>
+                  <span class="tech-tag">PostgreSQL</span>
+                  <span class="tech-tag">Knex.js</span>
+                  <span class="tech-tag">Docker</span>
+                  <span class="tech-tag">Google Sheets API</span>
+                  <span class="tech-tag">REST API</span>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio__content">
+              <h3 class="portfolio__item-title">Wildberries Tariff Monitor</h3>
+              <p class="portfolio__item-description">
+                A backend service for automatic collection and analysis of Wildberries box tariffs.
+                Built as a test assignment for a backend developer position.
+                <br><br>
+                🔹 Core Functionality:
+                <br>
+                • Automated hourly fetching of box tariffs from Wildberries API
+                • Daily data accumulation in PostgreSQL (with upsert logic)
+                • Scheduled data synchronization with multiple Google Sheets
+                • Data sorting by coefficient before export
+                <br><br>
+                🔹 Tech Stack:
+                <br>
+                • Backend: Node.js + TypeScript (strict typing)
+                • Database: PostgreSQL with Knex.js (migrations, queries)
+                • Integrations: Wildberries REST API, Google Sheets API (service account)
+                • Scheduling: node-cron for periodic tasks
+                • Deployment: Full Docker containerization (Docker Compose)
+                <br><br>
+                🔹 Architecture Highlights:
+                <br>
+                • Modular service-oriented architecture
+                • Environment-based configuration (`.env` + example)
+                • Separate tables for tariffs and spreadsheet IDs (supports N tables)
+                • Comprehensive logging for debugging
+              </p>
+              <div class="portfolio__links">
+                <a href="https://github.com/AleksFrontDev/wb-tariff-service"
+                  target="_blank"
+                  class="btn btn-github">
+                  <i class="fab fa-github"></i> View Code on GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Fullstack Todo App -->
           <div class="portfolio__item" data-category="fullstack">
             <div class="portfolio__image">
               <img src="img/exist projects/todoFullstack.png" alt="Fullstack Todo App">
@@ -485,7 +539,7 @@
             </div>
           </div>
 
-          <!-- Project 2: Pixi.js Game -->
+          <!-- Project 3: Pixi.js Game -->
           <div class="portfolio__item" data-category="gamedev">
             <div class="portfolio__image">
               <img src="img/exist projects/pixigame.png" alt="Pixi.js Game">
@@ -533,7 +587,7 @@
             </div>
           </div>
 
-          <!-- Project 3: Telegram Bot for Waste Removal -->
+          <!-- Project 4: Telegram Bot for Waste Removal -->
           <div class="portfolio__item" data-category="telegrambot">
             <div class="portfolio__image">
               <img src="img/exist projects/telegramBot.jpg" alt="Telegram Bot">
